@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:ldap="http://www.springframework.org/schema/ldap"
+    xmlns:cache="http://www.springframework.org/schema/cache"
+    
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/ldap http://www.springframework.org/schema/ldap/spring-ldap.xsd
+        http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+		
+	<annotation-driven />
+	<context:component-scan base-package="com" />
+	
+	<beans:bean id="contextSource"
+	       class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
+		<beans:constructor-arg index="0">
+			<beans:list>
+				<beans:value>ldap://ldapinpnq.capgemini.com:3268/</beans:value>
+			</beans:list>
+		</beans:constructor-arg>
+		<beans:constructor-arg index="1" value="DC=corp,DC=capgemini,DC=com"/>
+		<beans:property name="userDn" value="CN=S-FSSBUTAGPUNE,OU=DDA - India,OU=Generic accounts,OU=Resources,DC=corp,DC=capgemini,DC=com"/>
+		<beans:property name="password" value=""/>
+	</beans:bean>
+	
+	<ldap:ldap-template id="ldapTemplate" />
+<!-- 
+	 <beans:bean name="viewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
+    <beans:bean name="jsonTemplate" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>
+ -->	
+</beans:beans>
