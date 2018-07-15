@@ -1,0 +1,20 @@
+{
+  "name": "cg-squeaky",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "http://LIN59000544:9080/Rest",
+  "dependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-responsive-modal": "^3.0.3",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
